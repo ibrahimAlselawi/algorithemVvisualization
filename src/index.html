@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Algorithms UI</title>
+    <link href="output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+    <h2 class="text-3xl font-semibold text-center py-5">Sorting Algorithms Visualization</h2>
+
+    <div id="select" class="max-w-lg mx-auto bg-white p-5 rounded-lg shadow-lg mt-5">
+        <h3 class="text-2xl font-semibold text-center mb-4">Select Your Algorithms</h3>
+
+        <div class="flex items-center mb-4">
+            <input type="checkbox" id="SelectionCheckBox" name="SelectionCheckBox" value="Selection" class="mr-2.5">
+            <label for="SelectionCheckBox" class="text-lg">Selection Sort</label>
+        </div>
+
+        <div class="flex items-center mb-4">
+            <input type="checkbox" id="InsertionCheckBox" name="InsertionCheckBox" value="Insertion" class="mr-2.5">
+            <label for="InsertionCheckBox" class="text-lg">Insertion Sort</label>
+        </div>
+        
+        <div class="flex items-center mb-6">
+            <input type="checkbox" id="BubbleCheckBox" name="BubbleCheckBox" value="Bubble" class="mr-2.5">
+            <label for="BubbleCheckBox" class="text-lg">Bubble Sort</label>
+        </div>
+
+        <p class="text-xs text-gray-500 text-center mb-5">Select one or more algorithms above, then click the button to sort!</p>
+
+        <button onclick="chooseAlgoritem()" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300">Choose Algorithms</button>
+    </div>
+
+    <div class="hidden mt-5" id="mainDiv">
+        <button onclick="generateRandomInput()" class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300 mb-5">
+            Generate Random Input
+        </button>
+
+        <h3 class="text-xl font-semibold mb-2">Input Array:</h3>
+        <label for="arrayInput" class="text-lg">Enter numbers separated by commas:</label>
+        <input class="w-full p-3 mt-2 bg-gray-100 border border-gray-300 rounded-lg" type="text" id="arrayInput" placeholder="e.g., 12, 11, 13, 5, 6">
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <!-- Insertion Sort -->
+            <div class="container hidden" id="InsertionSort">
+                <h3 class="text-xl font-semibold">Insertion Sort</h3>
+                <label for="insertionOrder" class="text-lg">Select Sorting Order:</label>
+                <select id="insertionOrder" class="w-full p-2 mt-2 border border-gray-300 rounded-lg">
+                    <option value="ascending">Ascending</option>
+                    <option value="descending">Descending</option>
+                </select>
+                <div class="results mt-3" id="insertionResults">
+                    <!-- Results for Insertion Sort will be displayed here -->
+                </div>
+            </div>
+
+            <!-- Selection Sort -->
+            <div class="container hidden" id="SelectionSort">
+                <h3 class="text-xl font-semibold">Selection Sort</h3>
+                <label for="SelectionOrder" class="text-lg">Select Sorting Order:</label>
+                <select id="SelectionOrder" class="w-full p-2 mt-2 border border-gray-300 rounded-lg">
+                    <option value="ascending">Ascending</option>
+                    <option value="descending">Descending</option>
+                </select>
+                <div class="results mt-3" id="SelectionResults">
+                    <!-- Results for Selection Sort will be displayed here -->
+                </div>
+            </div>
+
+            <!-- Bubble Sort -->
+            <div class="container hidden" id="BubbleSort">
+                <h3 class="text-xl font-semibold">Bubble Sort</h3>
+                <label for="bubbleOrder" class="text-lg">Select Sorting Order:</label>
+                <select id="bubbleOrder" class="w-full p-2 mt-2 border border-gray-300 rounded-lg">
+                    <option value="ascending">Ascending</option>
+                    <option value="descending">Descending</option>
+                </select>
+                <div class="results mt-3" id="bubbleResult">
+                    <!-- Results for Bubble Sort will be displayed here -->
+                </div>
+            </div>
+        </div>
+
+        <button onclick="performSort()" class="bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600 transition duration-300 mt-5 w-full">
+            Sort
+        </button>
+    </div>
+
+    <script src="js/insertionSort.js"></script>
+    <script src="js/bubbleSort.js"></script>
+    <script src="js/selectionSort.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
