@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorting Algorithms UI</title>
     <link href="output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans">
     <nav class="fixed top-0 w-full min-h-20 flex items-center justify-between border-b-4 rounded-br-xl bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 shadow-lg">
@@ -109,7 +110,13 @@
             Sort
         </button>
     </div>
+
+    <div class="my-8 hidden" id="ChartDiv"> <!-- Chart will be displayed from performSort  -->
+        <canvas id="sortingChart" class="w-full h-96"></canvas>
+    </div>
 </div>
+
+
     <script src="js/insertionSort.js"></script>
     <script src="js/bubbleSort.js"></script>
     <script src="js/selectionSort.js"></script>
