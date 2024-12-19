@@ -29,11 +29,12 @@ function selectionSort(arr, order = "ascending") {
     // End timing the sorting process
     const endTime = performance.now();
     const timeTaken = endTime - startTime; // Calculate the time taken for sorting
+    
     updateChartData("Selection",  timeTaken,comparisons,swaps);
     return {
         sortedArray: arr,
         comparisons,
         swaps,
-        timeTaken: timeTaken, // Return time taken with 4 decimal places
+        timeTaken: timeTaken, 
     };
 }

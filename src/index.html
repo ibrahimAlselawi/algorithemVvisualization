@@ -10,11 +10,11 @@
 <body class="bg-gray-100 text-gray-800 font-sans">
     <nav class="fixed top-0 w-full min-h-20 flex items-center justify-between border-b-4 rounded-br-xl bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 shadow-lg">
         <div class="mx-auto max-w-full px-4 sm:px-6 lg:px-8 w-full">
-            <div class="relative flex items-center justify-between w-full">
+            <div class=" flex items-center justify-between w-full">
                 <h2 class="text-3xl font-bold text-black text-center py-5 tracking-wide sm:w-auto">Sorting Algorithms Visualization</h2>
     
                 <!-- Hamburger Icon -->
-                <div class="flex items-center space-x-4">
+                <!-- <div class="flex items-center space-x-4"> -->
                     <!-- <button id="hamburger" class="text-black p-2 focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -22,12 +22,12 @@
                     </button> -->
     
                     <!-- Desktop Menu -->
-                    <div class="space-x-6 flex items-center">
+                    <!-- <div class="space-x-6 flex items-center">
                         <a href="#" class="navbarMenuItem"> Home</a>
                         <a href="#" class="navbarMenuItem">About</a>
                         <a href="#" class="navbarMenuItem">Contact</a>
-                    </div>
-                </div>
+                    </div> -->
+                <!-- </div> -->
             </div>
         </div>
     </nav>
@@ -51,6 +51,11 @@
             <label for="BubbleCheckBox" class="labelCheckbox">Bubble Sort</label>
         </div>
 
+        <div class="flex items-center mt-4">
+            <input type="checkbox" id="QuickCheckBox" name="QuickCheckBox" value="Quick" class="peer hidden">
+            <label for="QuickCheckBox" class="labelCheckbox">Quick Sort</label>
+        </div>
+
         <p class="text-xs text-gray-500 text-center mb-5">Select one or more algorithms above, then click the button to sort!</p>
 
         <button onclick="chooseAlgoritem()" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300">Choose Algorithms</button>
@@ -67,36 +72,35 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
             <!-- Insertion Sort -->
-            <div class="container hidden" id="InsertionSortDiv">
-                <h3 class="text-xl font-semibold">Insertion Sort</h3>
-                <label for="insertionOrder" class="text-lg">Select Sorting Order:</label>
-                <select id="insertionOrder" class="w-full p-2 mt-2 border border-gray-300 rounded-lg">
+            <div class="contanerDiv hidden " id="InsertionSortDiv">
+                <h4 class="contanerDivTitle">Insertion Sort </h4>
+                <select id="insertionOrder" class="contanerDivSelection">
                     <option value="ascending">Ascending</option>
                     <option value="descending">Descending</option>
                 </select>
-                <div class="results mt-3" id="insertionResults">
+                <div class="results mt-3" id="insertionResult">
                     <!-- Results for Insertion Sort will be displayed here -->
                 </div>
             </div>
 
             <!-- Selection Sort -->
-            <div class="container hidden" id="SelectionSortDiv">
-                <h3 class="text-xl font-semibold">Selection Sort</h3>
-                <label for="SelectionOrder" class="text-lg">Select Sorting Order:</label>
-                <select id="SelectionOrder" class="w-full p-2 mt-2 border border-gray-300 rounded-lg">
+            <div class="contanerDiv hidden " id="SelectionSortDiv">
+                <h4 class="contanerDivTitle">Selection Sort</h4>
+                <select id="SelectionOrder" class="contanerDivSelection">
                     <option value="ascending">Ascending</option>
                     <option value="descending">Descending</option>
                 </select>
-                <div class="results mt-3" id="SelectionResults">
+                <div class="results mt-3" id="selectionResult">
                     <!-- Results for Selection Sort will be displayed here -->
                 </div>
             </div>
 
+            
+
             <!-- Bubble Sort -->
-            <div class="container hidden" id="BubbleSortDiv">
-                <h3 class="text-xl font-semibold">Bubble Sort</h3>
-                <label for="bubbleOrder" class="text-lg">Select Sorting Order:</label>
-                <select id="bubbleOrder" class="w-full p-2 mt-2 border border-gray-300 rounded-lg">
+            <div class="contanerDiv hidden " id="BubbleSortDiv">
+                <h4 class="contanerDivTitle">Bubble Sort</h4>
+                <select id="bubbleOrder" class="contanerDivSelection">
                     <option value="ascending">Ascending</option>
                     <option value="descending">Descending</option>
                 </select>
@@ -104,9 +108,22 @@
                     <!-- Results for Bubble Sort will be displayed here -->
                 </div>
             </div>
+
+            <!-- Quick Sort -->
+            <div class="contanerDiv hidden " id="QuickSortDiv">
+                <h4 class="contanerDivTitle">Quick Sort</h4>
+                <select id="QuickOrder" class="contanerDivSelection">
+                    <option value="ascending">Ascending</option>
+                    <option value="descending">Descending</option>
+                </select>
+                <div class="results mt-3 p-4 bg-gray-50 rounded-lg text-gray-800 text-sm" id="quickResult">
+                    <!-- Results for Quick Sort will be displayed here -->
+                </div>
+            </div>
+            
         </div>
 
-        <button onclick="performSort()" class="bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600 transition duration-300 mt-5 w-full">
+        <button onclick="performSort()" class="button">
             Sort
         </button>
     </div>
@@ -120,6 +137,7 @@
     <script src="js/insertionSort.js"></script>
     <script src="js/bubbleSort.js"></script>
     <script src="js/selectionSort.js"></script>
+    <script src="js/quickSort.js"></script>
     <script src="js/chart.js"></script>
     <script src="js/main.js"></script>
 </body>
