@@ -3,7 +3,9 @@ let sortingResults = {
     "Insertion": { time: 0, comparisons: 0, swaps: 0 },
     "Bubble": { time: 0, comparisons: 0, swaps: 0 },
     "Quick": { time: 0, comparisons: 0, swaps: 0 },
+    "Merge": { time: 0, comparisons: 0, swaps: 0 },
 };
+let labelsArr = ["Selection", "Insertion", "Bubble", "Quick",'Merge'];
 // Example: When a sorting algorithm finishes, capture the time and update the chart
 function updateChartData(algorithm, time, comparisons, swaps) {
     sortingResults[algorithm] = { time, comparisons, swaps };
@@ -17,7 +19,7 @@ const ctx = document.getElementById('sortingChart').getContext('2d');
 const sortingChart = new Chart(ctx, {
     type: 'bar',  // Bar chart to compare sorting algorithms
     data: {
-        labels: ['Selection', 'Insertion', 'Bubble', 'Quick'],
+        labels: labelsArr,
         datasets: [
             // {
             //     label: 'Sorting Time (ms)',
@@ -90,7 +92,7 @@ function updateChart() {
     const swapsData = [];
     const labels = [];
 
-    ["Selection", "Insertion", "Bubble", "Quick"].forEach(algorithm => {
+    labelsArr.forEach(algorithm => {
         const isSelected = selectedAlgorithms.some(selected => selected.name.toLowerCase() === algorithm.toLowerCase());
 
         if (isSelected) {

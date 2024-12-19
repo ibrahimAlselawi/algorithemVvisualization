@@ -55,6 +55,11 @@
             <input type="checkbox" id="QuickCheckBox" name="QuickCheckBox" value="Quick" class="peer hidden">
             <label for="QuickCheckBox" class="labelCheckbox">Quick Sort</label>
         </div>
+        
+        <div class="flex items-center mt-4">
+            <input type="checkbox" id="MergeCheckBox" name="mergeCheckBox" value="Selection" class="peer hidden">
+            <label for="MergeCheckBox" class="labelCheckbox">Merge Sort</label>
+        </div>
 
         <p class="text-xs text-gray-500 text-center mb-5">Select one or more algorithms above, then click the button to sort!</p>
 
@@ -74,7 +79,7 @@
             <!-- Insertion Sort -->
             <div class="contanerDiv hidden " id="InsertionSortDiv">
                 <h4 class="contanerDivTitle">Insertion Sort </h4>
-                <select id="insertionOrder" class="contanerDivSelection">
+                <select id="InsertionOrder" class="contanerDivSelection">
                     <option value="ascending">Ascending</option>
                     <option value="descending">Descending</option>
                 </select>
@@ -100,7 +105,7 @@
             <!-- Bubble Sort -->
             <div class="contanerDiv hidden " id="BubbleSortDiv">
                 <h4 class="contanerDivTitle">Bubble Sort</h4>
-                <select id="bubbleOrder" class="contanerDivSelection">
+                <select id="BubbleOrder" class="contanerDivSelection">
                     <option value="ascending">Ascending</option>
                     <option value="descending">Descending</option>
                 </select>
@@ -118,6 +123,18 @@
                 </select>
                 <div class="results hidden" id="quickResult">
                     <!-- Results for Quick Sort will be displayed here -->
+                </div>
+            </div>
+
+            <!-- merge Sort -->
+            <div class="contanerDiv hidden " id="MergeSortDiv">
+                <h4 class="contanerDivTitle">Merge Sort</h4>
+                <select id="MergeOrder" class="contanerDivSelection">
+                    <option value="ascending">Ascending</option>
+                    <option value="descending">Descending</option>
+                </select>
+                <div class="results hidden" id="mergeResult">
+                    <!-- Results for Bubble Sort will be displayed here -->
                 </div>
             </div>
             
@@ -139,6 +156,7 @@
     <script src="js/selectionSort.js"></script>
     <script src="js/quickSort.js"></script>
     <script src="js/chart.js"></script>
+    <script src="js/mergeSort.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

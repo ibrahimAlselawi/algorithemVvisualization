@@ -23,6 +23,7 @@ const chooseAlgoritem = function(){
         { name: "insertion", checkboxId: "InsertionCheckBox", divId: "InsertionSortDiv",comparisonsResult: "insertionComparisons", swapsResult :"insertionSwaps",timeResult:"insertionTime" },
         { name: "bubble", checkboxId: "BubbleCheckBox", divId: "BubbleSortDiv",comparisonsResult: "bubbleComparisons", swapsResult :"bubbleSwaps",timeResult:"bubbleTime" },
         { name: "quick", checkboxId: "QuickCheckBox", divId: "QuickSortDiv",comparisonsResult: "quickComparisons", swapsResult :"quickSwaps",timeResult:"quickTime" },
+        { name: "merge", checkboxId: "MergeCheckBox", divId: "MergeSortDiv", comparisonsResult: "mergeComparisons", swapsResult: "mergeSwaps", timeResult: "mergeTime" },
     ];
     algorithms.forEach(algorithm => {
         const isChecked = document.getElementById(algorithm.checkboxId).checked;
@@ -67,19 +68,23 @@ const performSort =  function()  {
     
     
 
-    const insertionOrder = document.getElementById("insertionOrder").value;
-    const bubbleOrder = document.getElementById("bubbleOrder").value;
+    const insertionOrder = document.getElementById("InsertionOrder").value;
+    const bubbleOrder = document.getElementById("BubbleOrder").value;
     const SelectionOrder = document.getElementById("SelectionOrder").value;
     const QuickOrder = document.getElementById("QuickOrder").value;
+    const mergeOrder = document.getElementById("MergeOrder").value;
+
     
     selectedAlgorithms.forEach(algorithm => {
         if (algorithm.isChecked) {
-            const arrayCopy = [].concat(array); // Copy the original array to avoid modifying it
+            // const arrayCopy = [].concat(array);
+            const arrayCopy = [...array]; // Copy the original array to avoid modifying it
             const order = {
                 Insertion: insertionOrder,
                 Bubble: bubbleOrder,
                 Selection: SelectionOrder,
-                Quick: QuickOrder
+                Quick: QuickOrder,
+                Merge: mergeOrder,
             }[algorithm.name];
         // Call the execute function with the appropriate parameters
           executeSortAndDisplayResult(algorithm.name, arrayCopy, order, `${algorithm.name.toLowerCase()}Result`);
@@ -108,6 +113,9 @@ function executeSortAndDisplayResult(algorithmName, array, order, resultDivId) {
         case "quick":
             result = quickSort(array, order);
             break;
+        case "merge":
+        result = mergeSort(array, order);
+        break;
         default:
             alert("something went wrong relode the page");
             return;
