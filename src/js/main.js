@@ -1,22 +1,43 @@
 // UI Hook for Sorting
 const chooseAlgoritem = function(){
-    const selectedAlgorithms = [];
-    if (document.getElementById("SelectionCheckBox").checked) {
-        selectedAlgorithms.push("Selection");
-    }
-    if (document.getElementById("InsertionCheckBox").checked) {
-        selectedAlgorithms.push("Insertion");
-
-    }
-    if (document.getElementById("BubbleCheckBox").checked) {
-        selectedAlgorithms.push("Bubble");
-    }
-
+    function updateHtml(selectedAlgorithms){
+        document.getElementById("selectDiv").classList.add("hidden");
+        document.getElementById("mainDiv").classList.remove("hidden");
+        selectedAlgorithms.forEach(algorithm => {
+            const divElement = document.getElementById(algorithm.divId);
+            if (algorithm.isChecked) {
+                divElement.classList.remove("hidden");
+            } else {
+                if(fivElement.classList.contains("hidden")){
+                divElement.classList.add("hidden");
+                };
+            };
+        });
+    };
+    // Declare selectedAlgorithms once
+    const selectedAlgorithms = [];  
+    const algorithms = [
+        { name: "Selection", checkboxId: "SelectionCheckBox", divId: "SelectionSortDiv" },
+        { name: "Insertion", checkboxId: "InsertionCheckBox", divId: "InsertionSortDiv" },
+        { name: "Bubble", checkboxId: "BubbleCheckBox", divId: "BubbleSortDiv" }
+    ];
+    algorithms.forEach(algorithm => {
+        const isChecked = document.getElementById(algorithm.checkboxId).checked;
+        if (isChecked) {
+            selectedAlgorithms.push({
+                name : algorithm.name,
+                divId: algorithm.divId,
+                isChecked: isChecked,
+            });
+        };
+    });
+    // Check if no algorithm was selected
     if (selectedAlgorithms.length === 0) {
         alert("Please select at least one algorithm to sort!");
-    }
-
-}
+    } else {
+        updateHtml(selectedAlgorithms);
+    };
+};
 const performSort = function () {
     // Get inputs from the UI
     const arrayInput = document.getElementById("arrayInput").value.trim();
