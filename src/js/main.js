@@ -1,5 +1,5 @@
 // UI Hook for Sorting
-document.getElementById("sortingChart").addEventListener("DOMContentLoaded",showMostEfficiency)
+// document.getElementById("sortingChart").addEventListener("DOMContentLoaded",showMostEfficiency())
 const selectedAlgorithms = [];  
 const chooseAlgoritem = function(){
     function updateHtml(selectedAlgorithms){
@@ -16,6 +16,7 @@ const chooseAlgoritem = function(){
             };
         });
     };
+
     // Declare selectedAlgorithms once
     const algorithms = [
         { name: "selection", checkboxId: "SelectionCheckBox", divId: "SelectionSortDiv",comparisonsResult: "selectionComparisons", swapsResult :"selectionSwaps",timeResult:"selectionTime" },
@@ -36,15 +37,21 @@ const chooseAlgoritem = function(){
             });
         };
     });
+
     // Check if no algorithm was selected
     if (selectedAlgorithms.length === 0) {
         alert("Please select at least one algorithm to sort!");
     } else {
         updateHtml(selectedAlgorithms);
     };
+    updateChart();
 };
 const performSort =  function()  {
     document.getElementById("ChartDiv").classList.remove("hidden");
+    var results = document.getElementsByClassName("results");
+    for (var i = 0; i < results.length; i++) {
+     results[i].classList.remove("hidden");
+    };
 
     const arrayInput = document.getElementById("arrayInput").value.trim();
     if (!arrayInput) {

@@ -4,7 +4,14 @@
 .contanerDiv{
     @apply
     container 
-    max-w-md mx-auto p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300
+    max-w-md
+    mx-auto p-4
+     bg-gray-200
+     rounded-lg shadow-lg hover:shadow-lg transition-shadow duration-300
+}
+.results{
+    @apply
+    mt-2 p-2 bg-gray-100 rounded-lg text-gray-800 text-sm
 }
 .contanerDivTitle{
     @apply

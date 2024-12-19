@@ -61,28 +61,53 @@ const sortingChart = new Chart(ctx, {
     },
 });
 // Function to update the chart
-function updateChart() {
-    // Update the sortingResults object with new data
-    // sortingChart.data.datasets[2].data = [
-    //     sortingResults["Selection"].time,
-    //     sortingResults["Insertion"].time,
-    //     sortingResults["Bubble"].time,
-    //     sortingResults["Quick"].time,
-    // ];
-    sortingChart.data.datasets[0].data = [
-        sortingResults["Selection"].comparisons,
-        sortingResults["Insertion"].comparisons,
-        sortingResults["Bubble"].comparisons,
-        sortingResults["Quick"].comparisons,
+// function updateChart() {
+//     // Update the sortingResults object with new data
+//     // sortingChart.data.datasets[2].data = [
+//     //     sortingResults["Selection"].time,
+//     //     sortingResults["Insertion"].time,
+//     //     sortingResults["Bubble"].time,
+//     //     sortingResults["Quick"].time,
+//     // ];
+//     sortingChart.data.datasets[0].data = [
+//         sortingResults["Selection"].comparisons,
+//         sortingResults["Insertion"].comparisons,
+//         sortingResults["Bubble"].comparisons,
+//         sortingResults["Quick"].comparisons,
 
-    ];
-    sortingChart.data.datasets[1].data = [
-        sortingResults["Selection"].swaps,
-        sortingResults["Insertion"].swaps,
-        sortingResults["Bubble"].swaps,
-        sortingResults["Quick"].swaps,
-    ];
-    sortingChart.update();
+//     ];
+//     sortingChart.data.datasets[1].data = [
+//         sortingResults["Selection"].swaps,
+//         sortingResults["Insertion"].swaps,
+//         sortingResults["Bubble"].swaps,
+//         sortingResults["Quick"].swaps,
+//     ];
+//     sortingChart.update();
+// };
+
+function updateChart() {
+    const comparisonsData = [];
+    const swapsData = [];
+    const labels = [];
+
+    ["Selection", "Insertion", "Bubble", "Quick"].forEach(algorithm => {
+        const isSelected = selectedAlgorithms.some(selected => selected.name.toLowerCase() === algorithm.toLowerCase());
+
+        if (isSelected) {
+            comparisonsData.push(sortingResults[algorithm].comparisons);
+            swapsData.push(sortingResults[algorithm].swaps);
+            labels.push(algorithm);
+        } else {
+            comparisonsData.push(0); // Zero for deselected algorithms
+            swapsData.push(0); // Zero for deselected algorithms
+        }
+    });
+
+    sortingChart.data.labels = labels; // Update chart labels
+    sortingChart.data.datasets[0].data = comparisonsData;
+    sortingChart.data.datasets[1].data = swapsData;
+
+    sortingChart.update(); // Re-render the chart
 };
 function updateChartStepSize(newStepSize){
     sortingChart.options.scales.y.ticks.stepSize = newStepSize;

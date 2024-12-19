@@ -78,7 +78,7 @@
                     <option value="ascending">Ascending</option>
                     <option value="descending">Descending</option>
                 </select>
-                <div class="results mt-3" id="insertionResult">
+                <div class="results hidden" id="insertionResult">
                     <!-- Results for Insertion Sort will be displayed here -->
                 </div>
             </div>
@@ -90,7 +90,7 @@
                     <option value="ascending">Ascending</option>
                     <option value="descending">Descending</option>
                 </select>
-                <div class="results mt-3" id="selectionResult">
+                <div class="results hidden" id="selectionResult">
                     <!-- Results for Selection Sort will be displayed here -->
                 </div>
             </div>
@@ -104,7 +104,7 @@
                     <option value="ascending">Ascending</option>
                     <option value="descending">Descending</option>
                 </select>
-                <div class="results mt-3" id="bubbleResult">
+                <div class="results hidden" id="bubbleResult">
                     <!-- Results for Bubble Sort will be displayed here -->
                 </div>
             </div>
@@ -116,7 +116,7 @@
                     <option value="ascending">Ascending</option>
                     <option value="descending">Descending</option>
                 </select>
-                <div class="results mt-3 p-4 bg-gray-50 rounded-lg text-gray-800 text-sm" id="quickResult">
+                <div class="results hidden" id="quickResult">
                     <!-- Results for Quick Sort will be displayed here -->
                 </div>
             </div>
@@ -128,8 +128,8 @@
         </button>
     </div>
 
-    <div class="my-8 hidden" id="ChartDiv"> <!-- Chart will be displayed from performSort  -->
-        <canvas id="sortingChart" class="w-full h-96"></canvas>
+    <div class=" my-4 hidden max-w-2xl max-h-2xl" id="ChartDiv"> <!-- Chart will be displayed from performSort  -->
+        <canvas id="sortingChart" class="w-full h-full"></canvas>
     </div>
 </div>
 
