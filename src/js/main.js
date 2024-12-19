@@ -39,7 +39,7 @@ const chooseAlgoritem = function(){
     };
 };
 const performSort = function () {
-    // Get inputs from the UI
+    document.getElementById("ChartDiv").classList.remove("hidden");
     const arrayInput = document.getElementById("arrayInput").value.trim();
     if (!arrayInput) {
         alert("Please enter an array of numbers!");

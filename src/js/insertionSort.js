@@ -30,7 +30,7 @@ function insertionSort(arr, order = "ascending") {
 
     const endTime = performance.now(); // End timing
     const timeTaken = (endTime - startTime); // Calculate time taken
-
+    updateChartData("Insertion", timeTaken,comparisons,swaps);
     return { 
         sortedArray: arr, 
         comparisons, 

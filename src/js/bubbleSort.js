@@ -29,7 +29,7 @@ function bubbleSort(arr, order = "ascending") {
     // End timing
     const endTime = performance.now();
     const timeTaken = (endTime - startTime); // Format time to 4 decimals
-
+    updateChartData("Bubble", timeTaken,comparisons,swaps);
     return {
         sortedArray: arr,
         comparisons,
