@@ -13,7 +13,7 @@ function updateChartData(algorithm, time, comparisons, swaps) {
         updateChartStepSize(5000);
     };
     updateChart();
-}
+};
 // Chart setup
 const ctx = document.getElementById('sortingChart').getContext('2d');
 const sortingChart = new Chart(ctx, {
@@ -52,12 +52,12 @@ const sortingChart = new Chart(ctx, {
                 ticks: {
                     stepSize: 5,
                 },
-                callback: function(value) {
-                    if (value <= 2) {
-                        return value.toFixed(6); 
-                    }
-                    return value; 
-                }
+                // callback: function(value) {
+                //     if (value <= 2) {
+                //         return value.toFixed(6); 
+                //     }
+                //     return value; 
+                // }
             },
         },
     },
@@ -102,7 +102,7 @@ function updateChart() {
         } else {
             comparisonsData.push(0); // Zero for deselected algorithms
             swapsData.push(0); // Zero for deselected algorithms
-        }
+        };
     });
 
     sortingChart.data.labels = labels; // Update chart labels
@@ -114,4 +114,4 @@ function updateChart() {
 function updateChartStepSize(newStepSize){
     sortingChart.options.scales.y.ticks.stepSize = newStepSize;
     sortingChart.update();
-}
+};
